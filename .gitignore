@@ -1,0 +1,5 @@
+.env
+/myenv
+flask_app/build/*
+flask_app/uploads/*
+flask_app/dist/*

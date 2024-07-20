@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask Question</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f3f4f6; /* Light gray background */
+            font-family: 'Arial', sans-serif;
+        }
+        .card {
+            border: none; /* No border */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+            background-color: #ffffff; /* White background */
+            color: #333333; /* Text color */
+        }
+        .card-title {
+            font-size: 2.5rem; /* Larger title */
+            color: #007bff; /* ChatGPT blue */
+        }
+        .form-group {
+            margin-bottom: 1.5rem; /* Spacing between elements */
+        }
+        .form-control {
+            border-radius: 5px; /* Rounded input */
+            border: 1px solid #cccccc; /* Light gray border */
+        }
+        .btn-primary {
+            background-color: #007bff; /* ChatGPT blue */
+            border: none; /* No border */
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        .alert {
+            background-color: #e9f7fe; /* Light blue background */
+            color: #0056b3; /* Dark blue text */
+            border: 1px solid #b3e5fc; /* Light blue border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 1rem; /* Padding */
+            margin-bottom: 1.5rem; /* Margin below alert */
+        }
+        .cssload-loader {
+            position: relative;
+            left: calc(50% - 31px);
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+                -o-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+            perspective: 780px;
+        }
+
+        .cssload-inner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+                -o-box-sizing: border-box;
+                -ms-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+            border-radius: 50%;
+                -o-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;	
+        }
+
+        .cssload-inner.cssload-one {
+            left: 0%;
+            top: 0%;
+            animation: cssload-rotate-one 1.15s linear infinite;
+                -o-animation: cssload-rotate-one 1.15s linear infinite;
+                -ms-animation: cssload-rotate-one 1.15s linear infinite;
+                -webkit-animation: cssload-rotate-one 1.15s linear infinite;
+                -moz-animation: cssload-rotate-one 1.15s linear infinite;
+            border-bottom: 3px solid rgb(0,0,0);
+        }
+
+        .cssload-inner.cssload-two {
+            right: 0%;
+            top: 0%;
+            animation: cssload-rotate-two 1.15s linear infinite;
+                -o-animation: cssload-rotate-two 1.15s linear infinite;
+                -ms-animation: cssload-rotate-two 1.15s linear infinite;
+                -webkit-animation: cssload-rotate-two 1.15s linear infinite;
+                -moz-animation: cssload-rotate-two 1.15s linear infinite;
+            border-right: 3px solid rgb(0,255,255);
+        }
+
+        .cssload-inner.cssload-three {
+            right: 0%;
+            bottom: 0%;
+            animation: cssload-rotate-three 1.15s linear infinite;
+                -o-animation: cssload-rotate-three 1.15s linear infinite;
+                -ms-animation: cssload-rotate-three 1.15s linear infinite;
+                -webkit-animation: cssload-rotate-three 1.15s linear infinite;
+                -moz-animation: cssload-rotate-three 1.15s linear infinite;
+            border-top: 3px solid rgb(0,0,255);
+        }
+        @keyframes cssload-rotate-one {
+            0% {
+                transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+            }
+            100% {
+                transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+            }
+        }
+
+        @-o-keyframes cssload-rotate-one {
+            0% {
+                -o-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+            }
+            100% {
+                -o-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+            }
+        }
+
+        @-ms-keyframes cssload-rotate-one {
+            0% {
+                -ms-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+            }
+            100% {
+                -ms-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+            }
+        }
+
+        @-webkit-keyframes cssload-rotate-one {
+            0% {
+                -webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+            }
+            100% {
+                -webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+            }
+        }
+
+        @-moz-keyframes cssload-rotate-one {
+            0% {
+                -moz-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+            }
+            100% {
+                -moz-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+            }
+        }
+
+        @keyframes cssload-rotate-two {
+            0% {
+                transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+            }
+            100% {
+                transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+            }
+        }
+
+        @-o-keyframes cssload-rotate-two {
+            0% {
+                -o-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+            }
+            100% {
+                -o-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+            }
+        }
+
+        @-ms-keyframes cssload-rotate-two {
+            0% {
+                -ms-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+            }
+            100% {
+                -ms-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+            }
+        }
+
+        @-webkit-keyframes cssload-rotate-two {
+            0% {
+                -webkit-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+            }
+            100% {
+                -webkit-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+            }
+        }
+
+        @-moz-keyframes cssload-rotate-two {
+            0% {
+                -moz-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+            }
+            100% {
+                -moz-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+            }
+        }
+
+        @keyframes cssload-rotate-three {
+            0% {
+                transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+            }
+            100% {
+                transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+            }
+        }
+
+        @-o-keyframes cssload-rotate-three {
+            0% {
+                -o-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+            }
+            100% {
+                -o-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+            }
+        }
+
+        @-ms-keyframes cssload-rotate-three {
+            0% {
+                -ms-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+            }
+            100% {
+                -ms-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+            }
+        }
+
+        @-webkit-keyframes cssload-rotate-three {
+            0% {
+                -webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+            }
+            100% {
+                -webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+            }
+        }
+
+        @-moz-keyframes cssload-rotate-three {
+            0% {
+                -moz-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+            }
+            100% {
+                -moz-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+            }
+        }
+        .loading-wrapper {
+            display: none;
+            text-align: center;
+            padding-bottom: 1.5rem;
+            padding-top: 1.5rem;
+        }
+
+        /* Scrolling text */
+        .scrolling-text {
+            display: none; /* Initially hidden */
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(90deg, rgba(0,123,255,1) 0%, rgba(0,210,255,1) 100%);
+            color: black;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 0.5rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .scrolling-text span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: var(--direction) var(--marquee-speed) linear infinite; /* Increased duration to 30s */
+        }
+        .scrolling-text span:hover {
+            animation-play-state: paused;
+        }
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes scroll-right {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title text-center mb-4">Ask Question</h1>
+                <div class="alert">
+                    <strong>Instructions:</strong>
+                    <ul>
+                        <li>Please ask Questions only related to uploaded PDF or DOCX files.</li>
+                        <li>Ask easy and simple questions.</li>
+                        <li>For detailed answer, use phrases like 'how' , 'why' or 'ans in detail'</li>
+                    </ul>
+                </div>
+                <form id="ask-form" method="post" action="/ask">
+                    <div class="form-group">
+                        <label for="question" class="font-weight-bold">Question:</label>
+                        <input type="text" class="form-control" id="question" name="question" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Ask</button>
+                </form>
+                <div class="loading-wrapper" id="loading-wrapper">
+                    <div class="cssload-loader">
+                        <div class="cssload-inner cssload-one"></div>
+                        <div class="cssload-inner cssload-two"></div>
+                        <div class="cssload-inner cssload-three"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scrolling-text" id="scrolling-text" >
+        <span style="--marquee-speed: 20s; --direction:scroll-left">It may take some time, please be patient! 😄</span>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('ask-form').addEventListener('submit', function() {
+            document.getElementById('loading-wrapper').style.display = 'block';
+            document.getElementById('scrolling-text').style.display = 'block'; // Show scrolling text
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f3f4f6; /* Light gray background */
+            font-family: 'Arial', sans-serif;
+        }
+        .card {
+            border: none; /* No border */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+            background-color: #ffffff; /* White background */
+            color: #333333; /* Text color */
+        }
+        .card-title {
+            font-size: 2.5rem; /* Larger title */
+            color: #007bff; /* ChatGPT blue */
+        }
+        .btn-primary {
+            background-color: #007bff; /* ChatGPT blue */
+            border: none; /* No border */
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        .box {
+            border: 1px solid #ddd; /* Light gray border */
+            border-radius: 8px; /* Rounded corners */
+            padding: 15px; /* Padding inside the box */
+            margin-bottom: 15px; /* Space between boxes */
+            background-color: #f9f9f9; /* Slightly off-white background */
+        }
+        .box-title {
+            font-size: 1.25rem; /* Larger text for titles */
+            margin-bottom: 10px; /* Space below title */
+            color: #007bff; /* ChatGPT blue */
+        }
+        .box-content {
+            font-size: 1rem; /* Normal text size */
+            color: #555555; /* Slightly darker text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title text-center mb-4">Result</h1>
+                <div class="box">
+                    <div class="box-title"><strong>Question:</strong></div>
+                    <div class="box-content">{{ question }}</div>
+                </div>
+                <div class="box">
+                    <div class="box-title"><strong>Answer:</strong></div>
+                    <div class="box-content" id="answer-content"></div>
+                </div>
+                <a href="/ask" class="btn btn-primary btn-block">Ask another question</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var answer = "{{ answer }}";
+            var answerContent = document.getElementById('answer-content');
+            
+            if (answer.includes('.')) {
+                var points = answer.split('.');
+                var ul = document.createElement('ul');
+                points.forEach(function(point) {
+                    var li = document.createElement('li');
+                    li.textContent = point.trim();
+                    ul.appendChild(li);
+                });
+                answerContent.appendChild(ul);
+            } else {
+                answerContent.textContent = answer;
+            }
+        });
+    </script>
+</body>
+</html>
